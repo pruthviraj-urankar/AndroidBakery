@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "749144431940",
+    "firebase_url": "https://androidbakery-d22a5.firebaseio.com",
+    "project_id": "androidbakery-d22a5",
+    "storage_bucket": "androidbakery-d22a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749144431940:android:cce1ff2f0d743cd3",
+        "android_client_info": {
+          "package_name": "com.example.androidbakery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749144431940-cg3ouheetblmnu75anb460rjbf32qtl7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.androidbakery",
+            "certificate_hash": "6ddc096390d5949ccfb7ecc85e88f670f8f1fbb9"
+          }
+        },
+        {
+          "client_id": "749144431940-nsloo52vt4qeh6f46job8uac5ui0pl11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS8dx88X4MpH1qEnl-wRrOfeZltZVo7dU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749144431940-nsloo52vt4qeh6f46job8uac5ui0pl11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
