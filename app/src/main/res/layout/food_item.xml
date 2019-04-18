@@ -7,8 +7,8 @@
     android:layout_marginBottom="8dp">
 
     <RelativeLayout
-        android:layoutWidth="match_parent"
-        android:layoutHeight="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:id="@+id/food_name"
             android:text="name of food"
             android:textColor="@android:color/white"
-            android:background="4f0e0d0e"
+            android:background="#4f0e0d0e"
             android:textSize="20sp"
             android:gravity="center"
             android:layout_alignParentBottom="true"/>

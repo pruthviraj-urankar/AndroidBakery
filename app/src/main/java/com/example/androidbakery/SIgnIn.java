@@ -1,6 +1,7 @@
 package com.example.androidbakery;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.androidbakery.Model.User;
+import com.example.androidbakery.common.common;
 import com.google.android.gms.signin.SignIn;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +56,11 @@ public class SIgnIn extends AppCompatActivity {
                         User user=dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                         if(user.getPassword().equals(edtPassword.getText().toString()))
                         {
-                            Toast.makeText(SIgnIn.this,"Sign In Successful",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SIgnIn.this,"Sign In Successful",Toast.LENGTH_SHORT).show();
+                            Intent homeIntent=new Intent(SIgnIn.this,Home.class);
+                            common.currentUser=user;
+                            startActivity(homeIntent);
+                            finish();
                         }
                         else
                             Toast.makeText(SIgnIn.this, "Sign In Failes", Toast.LENGTH_SHORT).show();
