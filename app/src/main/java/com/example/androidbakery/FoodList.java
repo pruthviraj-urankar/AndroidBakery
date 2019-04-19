@@ -6,9 +6,12 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.androidbakery.Interface.ItemClickListener;
 import com.example.androidbakery.Model.Food;
 import com.example.androidbakery.ViewHolder.FoodViewHolder;
@@ -30,7 +33,6 @@ public class FoodList extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
-
         database=FirebaseDatabase.getInstance();
         foodlist=database.getReference("Foods");
         recyclerView=(RecyclerView)findViewById(R.id.recycler_food);
@@ -39,7 +41,7 @@ public class FoodList extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         if(getIntent()!=null)
-            categoryId=getIntent().getStringExtra("CategortId");
+            categoryId=getIntent().getStringExtra("CategoryId");
         if(!categoryId.isEmpty()&&categoryId!=null)
         {
             loadListFood(categoryId);
@@ -52,9 +54,12 @@ public class FoodList extends AppCompatActivity {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
                 viewHolder.food_name.setText(model.getName());
-                Picasso.with(getBaseContext()).load(model.getImage()).into(viewHolder.food_image);
+                //Picasso.with(getBaseContext()).load(model.getImage()).into(viewHolder.food_image);
+                Glide.with(getBaseContext()).load(model.getImage())
+                        .apply(new RequestOptions().override(200, 100)).into(viewHolder.food_image);
 
                 final Food local = model;
+                Log.i("Food List"," "+model.getName());
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
@@ -63,6 +68,7 @@ public class FoodList extends AppCompatActivity {
                 });
             }
         };
+        Log.d("TAG",""+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
 }
