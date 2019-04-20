@@ -64,14 +64,16 @@ public class FoodList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
+                        Log.i("in on click","on click");
                         Intent foodDetail = new Intent(FoodList.this, FoodDetail.class);
                         foodDetail.putExtra("FoodId",adapter.getRef(position).getKey());
                         startActivity(foodDetail);
                     }
                 });
+                Log.i("Set Item","Item");
             }
         };
-        Log.d("TAG",""+adapter.getItemCount());
+        Log.i("TAG",""+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
 }
