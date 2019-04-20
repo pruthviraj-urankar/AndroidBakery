@@ -124,6 +124,7 @@ public class Home extends AppCompatActivity
                 });
             }
         };
+        Log.d("TAG","Home-items:"+adapter.getItemCount());
         recycler_menu.setAdapter(adapter);
     }
 
