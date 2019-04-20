@@ -73,7 +73,8 @@ public class FoodList extends AppCompatActivity {
                 Log.i("Set Item","Item");
             }
         };
-        Log.i("TAG",""+adapter.getItemCount());
+        Log.i("TAG","Food Count:"+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
+
 }
