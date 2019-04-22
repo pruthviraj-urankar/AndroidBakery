@@ -32,8 +32,10 @@ public class Database extends SQLiteAssetHelper {
         final List<Order> result = new ArrayList<>();
         if (c.moveToFirst()) {
             do {
-                result.add(new Order(c.getString(c.getColumnIndex("ProductId")), c.getString(c.getColumnIndex("ProductName")),
-                        c.getString(c.getColumnIndex("Quantity")), c.getString(c.getColumnIndex("Price")),
+                result.add(new Order(c.getString(c.getColumnIndex("ProductId")),
+                        c.getString(c.getColumnIndex("ProductName")),
+                        c.getString(c.getColumnIndex("Quantity")),
+                        c.getString(c.getColumnIndex("Price")),
                         c.getString(c.getColumnIndex("Discount"))));
             } while (c.moveToNext());
         }
@@ -42,12 +44,12 @@ public class Database extends SQLiteAssetHelper {
 
     public void addToCart(Order order) {
         SQLiteDatabase db = getReadableDatabase();
-        String query = String.format("Insert OrderDetail(ProductId,ProductName,Quantity,Price,Discount) VALUES('%s','%s','%s','%s','%s');", order.getProductId(),
+        String query = String.format("INSERT INTO OrderDetail(ProductId,ProductName,Quantity,Price,Discount) VALUES('%s','%s','%s','%s','%s');", order.getProductId(),
                 order.getProductName(), order.getQuantity(), order.getPrice(), order.getDiscount());
         db.execSQL(query);
     }
 
-    public void cleanCart(Order order) {
+    public void cleanCart() {
         SQLiteDatabase db = getReadableDatabase();
         String query = String.format("DELETE FROM OrderDetail");
         db.execSQL(query);
