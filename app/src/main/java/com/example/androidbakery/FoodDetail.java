@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.androidbakery.Model.Food;
 import com.google.firebase.database.DataSnapshot;
@@ -63,7 +65,9 @@ public class FoodDetail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Food food = dataSnapshot.getValue(Food.class);
-                Picasso.with(getBaseContext()).load(food.getImage()).into(food_image);
+                //Picasso.with(getBaseContext()).load(food.getImage()).into(food_image);
+                Glide.with(getBaseContext()).load(food.getImage())
+                        .apply(new RequestOptions().override(200, 100)).into(food_image);
 
                 collapsingToolbarLayout.setTitle(food.getName());
                 food_price.setText(food.getPrice());

@@ -2,7 +2,9 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FoodDetail">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -58,7 +60,9 @@
         android:id="@+id/nestedScrollView"
         android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
         <LinearLayout
             android:orientation="vertical"
@@ -123,7 +127,8 @@
                         app:textSize="8sp"
                         app:backGroundColor="@color/colorAccent"
                         app:initialNumber="1"
-                        app:finalNumber="20"></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+                        app:finalNumber="20">
+                    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
                 </LinearLayout>
 
